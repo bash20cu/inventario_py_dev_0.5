@@ -4328,3 +4328,13 @@
 
 [0716/133929.364:INFO:cefpython_app.cpp(105)] [Browser process] Command line string for the browser process: python --browser-subprocess-path="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\python-2.7.10\lib\site-packages\cefpython3/subprocess" --no-sandbox --lang=en-US --log-file="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\debug.log" --log-severity=info --resources-dir-path="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\python-2.7.10\lib\site-packages\cefpython3" --locales-dir-path="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\python-2.7.10\lib\site-packages\cefpython3/locales" --remote-debugging-port=60612 --disable-gpu-shader-disk-cache run.py
 
+[0716/142021.600:INFO:cef_log.cpp(8)] [Browser process] Initialize() called
+
+[0716/142021.600:INFO:cef_log.cpp(8)] [Browser process] DEPRECATED: 'release_dcheck_enabled' setting
+
+[0716/142021.600:INFO:cef_log.cpp(8)] [Browser process] CefInitialize()
+
+[0716/142021.624:INFO:cef_log.cpp(8)] [Browser process] App_OnBeforeCommandLineProcessing_BrowserProcess()
+
+[0716/142021.624:INFO:cefpython_app.cpp(105)] [Browser process] Command line string for the browser process: python --browser-subprocess-path="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\python-2.7.10\lib\site-packages\cefpython3/subprocess" --no-sandbox --lang=en-US --log-file="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\debug.log" --log-severity=info --resources-dir-path="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\python-2.7.10\lib\site-packages\cefpython3" --locales-dir-path="Z:\inventario_py_dev_0.5\py_dev\Inventario\py-dist\python-2.7.10\lib\site-packages\cefpython3/locales" --remote-debugging-port=56524 --disable-gpu-shader-disk-cache run.py
+
