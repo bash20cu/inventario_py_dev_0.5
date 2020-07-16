@@ -1,0 +1,22 @@
+{% extends "inventario.html" %}
+{%block title%}Validada{%endblock%}
+{% block content %}
+<div >
+    <div class="col-8 offset-2 table-responsive">
+        <table align="center" class="table table-borderless table_report table-primary">
+            <tr>
+                <th>Producto </th>
+                <th>Cantidad </th>
+                <th>Categoria </th>
+                <th>Precio de Venta </th>
+            </tr>
+             <tr>
+                <td>{{detalles.nombre}}</td>
+                <td>{{detalles.cantidad}}</td>
+                <td>{{detalles.categoria}}</td>
+                <td>{{detalles.precio_venta}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

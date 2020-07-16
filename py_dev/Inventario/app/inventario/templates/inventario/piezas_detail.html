@@ -1,0 +1,19 @@
+{% extends "inventario.html" %}
+{% block content %}
+<h2 align="center">Pieza: {{ piezas.producto }}</h2>
+    <div class="offset-1 table-responsive">
+        <table align="center" class="table table-borderless table-primary table_report">
+             <tr><td>Cantidad: </td> <td>{{ piezas.cantidad }}</td></tr>
+            <tr><td>Producto: </td> <td>{{ piezas.nombre }}</td></tr>
+            <tr><td>Categoria: </td><td> {{ piezas.categoria }}</td></tr>
+            <tr><td>Precio Venta: </td><td>{{piezas.precio_venta}}</td><tr>
+            <tr><td>Fecha Entrada: </td><td>{{ piezas.fecha_entrada }}</td></tr>
+            <tr><td><a class="btn btn-primary" href="{%url 'lista-categoria' %}">Editar Pieza</a></td>
+            <tr><td><a class="btn btn-primary" href="{%url 'editar-piezas' piezas.id %}">Editar Pieza</a></td>
+                <form method="post">
+                    <td><a class="btn btn-primary" href="{%url 'venta-piezas' %}">Vender Pieza</a></td>
+                </form>
+            </tr>
+        </table>    
+    </div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{%extends "inventario.html"%}
+{%block title%}Reporte{%endblock%}
+{%block nav%}
+{% load staticfiles %}
+{%endblock%}
+{%block content%}
+
+<div class="col-9 offset-2 table-responsive">
+    {% if baja %}
+        <table class="table table-warning col-auto table_report table-borderless" align="center">
+                <th align="center">Cero en inventario</th>
+            <tr>
+                <th>Categoria </th>
+                <th>Producto (s) </th>                
+                <th>Seccion </th>
+                <th>Precio de Venta </th>
+            </tr>
+            {% for baja  in baja %}
+            <tr>
+                <td>{{baja.categoria}}</td>
+                <td>{{baja.nombre}}</td>                
+                <td>{{baja.categoria.seccion}}</td>
+                <td>{{baja.precio_venta}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+            <table class="table table-success col-auto table_report table-borderless" align="center">
+                {% if fecha %}
+                <th align="center">Mes en curso:</th>
+                <th>TOTAL: {{suma_total}} $</th>
+            <tr>
+                <th>Categoria </th>                
+                <th>Producto </th>
+                <th>Cantidad </th>                
+                <th>Fecha </th> 
+                <th>Precio de Venta </th>
+            </tr>
+            {% for fecha  in fecha %}
+            <tr>
+                <td>{{fecha.pieza.categoria}}</td>                
+                <td>{{fecha.pieza}}</td>
+                <td>{{fecha.cantidad}}</td>                
+                <td>{{fecha.fecha}}</td>   
+                <td>{{fecha.pieza.precio_venta}}</td>
+            </tr>
+             {% endfor %}
+            {% endif %}
+                <table class="table table-success col-auto table_report table-borderless" align="center">
+                     {% if cantidad %}
+                <th align="center">Articulo mas vendido por:</th>
+                <th align="center">Cantidad</th>
+                 <th align="center">cantidad > 100</th>
+            <tr>
+                <th>Producto (s) </th>
+                <th>Cantidad (s) </th>
+                <th>Fecha </th>
+                <th>Categoria </th
+                <th>Precio de Venta </th>
+            </tr>
+            {% for mas_venta_cantidad  in mas_venta_cantidad %}
+            <tr>
+                <td>{{cantidad.nombre}}</td>
+                <td>{{cantidad.cantidad}}</td>
+                <td>{{cantidad.fecha}}</td>
+                <td>{{cantidad.categoria}}</td>
+                <td>{{cantidad.precio_venta}}</td>
+            </tr>
+             {% endfor %}
+            {% endif %}
+                </table>
+                <table class="table table-success col-auto table_report table-borderless" align="center">
+            {% if semana %}
+                    <th align="center">Servicio:</th>
+                    <th align="center">Semana</th>
+            {% for semana  in semana %}
+            <tr>
+                <th>Servicio </th>
+                    <td>{{semana.servicio}}</td>
+                <th>Cantidad  </th>
+                    <td>{{semana.cantidad}}</td>
+                <th>Fecha </th>
+                    <td>{{semana.fecha}}</td>
+                <th>Efectivo </th>
+                    <td>{{semana.precio}}</td>
+            </tr>
+            <tr>
+                <td colspan="8">| {{semana.comentario}} |</td>
+            </tr>
+             {% endfor %}
+            {% endif %}
+            </table>
+        </div>
+</div>
+{%endblock%}

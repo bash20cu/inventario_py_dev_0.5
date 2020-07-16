@@ -1,0 +1,34 @@
+{%extends "inventario.html"%}
+{%block title%}Resultado de la busqueda{%endblock%}
+{%block content%}
+{% load staticfiles %}
+<p align="center">Elemento(s) Encontrados: {{pieza|length}} Elemento{{pieza|pluralize}}</p>
+{% if pieza %}
+{%for pieza in pieza%}
+<div>
+    <div class="offset-2 col-8 table-responsive">
+    <table align="center" class="table table-primary table_report table-borderless">
+    <tr>
+        <th></th>
+        <th>Cantidad: </th>
+        <th>Producto: </th>
+        <th>Categoria: </th>
+        <th>Seccion:</th>
+        <th>Precio </th>
+    </tr>
+    <tr class="table-info">
+        <td><a class="btn btn-primary" href="{%url 'venta-piezas' pieza.id %}">Vender  <img src="{% static 'icons/shop_2_white.png'%}" height="20" width="20"></a></td>
+        <td>{{pieza.cantidad}}</td>
+        <td>{{pieza.nombre}}</td>
+        <td>{{pieza.categoria}}</td>
+        <td>{{pieza.categoria.seccion}}</td>
+        <td>{{pieza.precio_venta}}</td>
+    </tr>
+        {%endfor%}
+    {% else %}
+    <p align="center">NO existe la pieza</p>
+    {%endif%}
+    </table>
+    </div>
+</div>
+{%endblock%}

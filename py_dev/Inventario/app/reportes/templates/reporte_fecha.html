@@ -1,0 +1,19 @@
+{%extends "reportes.html" %}
+{%block title%}Reporte por Fecha{%endblock%}
+{%block content%}
+<div >
+    <div class="col-6 offset-3 table-responsive">
+        <table class="table table-primary table_report table-borderless" align="center">
+        <form method="post" name="reporte_semana">
+            {% csrf_token %}
+            <th>Reporte por dia(s), semana(s)</th>
+            <tr>
+                <td><input type="date" class="form-control col-auto date" type="date" name="fecha_inic" required="True"></td>
+                <td><input type="date" class="form-control col-auto date" type="date" name="fecha_final" required="True"></td>
+                <td><input class="btn btn-primary" type="submit" value="Reporte"></td>
+            </tr>
+        </form>
+        </table>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,29 @@
+{% extends "inventario.html" %}
+{% block content %}
+    <div class="col-7 offset-3">
+        <form method="post">
+         {% csrf_token %}
+            <p align="center">Venta: {{ detalles.nombre }}</p>
+                <table align="center" class="table table-borderless table_report table-primary">
+                    <tr>
+                        <td>Cantidad: </td>
+                        <td>{{detalles.cantidad}}</td>
+                    <tr>
+                    </tr>
+                        <td>Cantidad a Vender: </td>
+                        <td><input class="form-control offset-0 col-3" type="number" name="cantidad" min="0.0" required="True">
+                        {% if error %}
+                        <p style="color:red">Introduzca la cantidad no mayor que la existente</p>
+                        {% endif %} 
+                        </td>
+                    </tr>
+                    <tr><td>Producto: </td> <td>{{ detalles.nombre }}</td></tr>
+                    <tr><td>Categoria: </td><td> {{ detalles.categoria }}</td></tr>
+                    <tr><td>Seccion: </td><td> {{ detalles.categoria.seccion }}</td></tr>
+                    <tr><td>Precio de Venta: </td><td>{{ detalles.precio_venta }}</td><tr>
+                    <tr><td>Fecha de Venta: </td><td><input class="form-control col-7" type="date" name="fecha" value="fecha" required="True"> </td></tr>
+                    <tr><td><input type="submit" class="btn btn-primary" value="Validar Venta"></td></tr>
+                </table>
+         </form>
+    </div>
+{% endblock %}

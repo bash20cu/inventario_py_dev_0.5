@@ -1,0 +1,32 @@
+{% extends "reportes.html" %}
+{%block title%}Reporte Completo{%endblock%}
+{% block content %}
+<h1 align="center">Lista de Piezas</h1>
+<div >
+    <div class="col-8 offset-3 table-responsive">
+        <table align="center" class="table table_report table-borderless table-primary">
+            {% if lista %}            
+            <tr>
+                <th>Cantidad </th>
+                <th>Producto </th>
+                <th>Categoria </th>
+                <th>Seccion </th>
+                <th>Precio de Venta </th>
+            </tr>     
+            {% for lista  in lista %}       
+            <tr class="table-success">
+                <td>{{lista.cantidad}}</td>
+                <td>{{lista.nombre}}</td>
+                <td>{{lista.categoria}}</td>
+                <td>{{lista.categoria.seccion}}</td>
+                <td>{{lista.precio_venta}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+    {% else %}
+        <h1 align="center">No hay piezas registrados.</h1>
+{% endif %}
+{% endblock %}

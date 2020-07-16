@@ -1,0 +1,33 @@
+{%extends "inventario.html"%}
+{%block title%}Registro de ventas{%endblock%}
+{%block content%}
+<h1 align="center">Registro de ventas</h1>
+<div >
+    <div class="col-8 offset-1 table-responsive">
+        <table align="center" class="table table-border table-primary">
+        {% if object_list %}
+        <tr>
+            <th>Cantidad </th>
+            <th>Producto </th>
+            <th>Categoria </th>
+            <th>Seccion </th>
+            <th>Precio de Venta </th>
+            <th>Fecha de Venta </th>
+        </tr>
+            {% for registroventa  in object_list %}
+        <tr class="table-info">
+            <td>{{registroventa.cantidad}}</td>
+            <td>{{registroventa.pieza.nombre}}</td>
+            <td>{{registroventa.pieza.categoria}}</td>
+            <td>{{registroventa.pieza.categoria.seccion}}</td>
+            <td>{{registroventa.pieza.precio_venta}}</td>
+            <td>{{registroventa.fecha}}</td>
+        </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+    {% else %}
+        <h2 align="center">No hay Ventas</h2>
+{% endif %}
+{%endblock%}

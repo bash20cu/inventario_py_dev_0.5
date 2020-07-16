@@ -1,0 +1,54 @@
+{%extends "reportes.html" %}
+{%block title%}Reporte Completo{%endblock%}
+{% block content %}
+   <div class="col-8 offset-2">
+        <table align="center" class="table table_report table-borderless table-striped table-primary">
+             <tr>
+                <th colspan='5'>Total {{ suma_pieza }} $</th>
+            </tr>
+            {% if lista %}
+            <tr>
+                <th>Cantidad </th>
+                <th>Producto </th>
+                <th>Categoria </th>                
+                <th>Efectivo </th>
+                <th>Fecha de Venta</th>
+            </tr>
+            {% for lista  in lista %}
+            <tr class="table-success">
+                <td>{{lista.cantidad}}</td>
+                <td>{{lista.pieza}}</td>
+                <td>{{lista.pieza.categoria}}</td>                
+                <td>{{lista.precio}}</td>
+                <td colspan='2'>{{lista.fecha}}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+        <table align="center" class="table table_report table-borderless table-striped  table-primary">
+            <tr>
+                <th colspan='5'>Total Servicio {{ suma_servicio }} $</th>
+            </tr>
+            {% if lista_servicio %}
+            <tr>
+                <th>Cantidad </th>
+                <th>Tipo de Servicio </th>
+                <th>Fecha Efectuado </th>
+                <th>Precio </th>
+                <th colspan="4">Comentarios </th>
+            </tr>
+            {% for lista_servicio  in lista_servicio %}
+            <tr class="table-success">
+                <td>{{lista_servicio.cantidad}}</td>
+                <td>{{lista_servicio.servicio}}</td>
+                <td>{{lista_servicio.fecha}}</td>
+                <td>{{lista_servicio.precio}}</td>
+                <td colspan="3">{{lista_servicio.comentario}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <h1 align="center">No hay ventas registradas.</h1>
+{% endif %}
+{% endblock %}
